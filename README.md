@@ -4,6 +4,9 @@
 Creating a form.
 Using 
 
+In src/main/resources/application.example.properties change name to application.properties
+and into archive add apikey from unsplash next to "api.key="
+
 Run app:
 ```sh
 $ mvnw spring-boot:run
