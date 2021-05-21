@@ -3,7 +3,6 @@ package com.wisboo.asignacion.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.wisboo.asignacion.model.Favorita;
@@ -13,6 +12,9 @@ import com.wisboo.asignacion.repository.FavoritaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -94,6 +96,20 @@ public class favoritoController {
         List<Favorita> favorita = (List<Favorita>) favoritaRespository.findAll();
 
         return new ResponseEntity<List<Favorita>>(favorita, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/favpage", params = { "page", "size" })
+    public ResponseEntity<?> findPaginated(@RequestParam("page") Integer page, @RequestParam("size") Integer size) {
+        if (page < 1) {
+            return new ResponseEntity<>("El campo page debe ser mayor o igual a 1", HttpStatus.BAD_REQUEST);
+        }
+        page--;
+
+        Pageable elements = PageRequest.of(page, size);
+        Page<Favorita> resultPage = favoritaRespository.findAll(elements);
+        List<Favorita> response = resultPage.getContent();
+
+        return new ResponseEntity<List<Favorita>>(response, HttpStatus.OK);
     }
 
 }

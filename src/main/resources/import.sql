@@ -1,3 +1,10 @@
+-- insert into favorita ( 	url   ) values ( 'test0');
 -- insert into favorita ( 	url   ) values ( 'test1');
 -- insert into favorita ( 	url   ) values ( 'test2');
 -- insert into favorita ( 	url   ) values ( 'test3');
+-- insert into favorita ( 	url   ) values ( 'test4');
+-- insert into favorita ( 	url   ) values ( 'test5');
+-- insert into favorita ( 	url   ) values ( 'test6');
+-- insert into favorita ( 	url   ) values ( 'test7');
+-- insert into favorita ( 	url   ) values ( 'test8');
+-- insert into favorita ( 	url   ) values ( 'test9');
