@@ -11,5 +11,4 @@ public class RestTemplateConfig {
     public RestTemplate registrarTemplate() {
         return new RestTemplate();
     }
-
 }

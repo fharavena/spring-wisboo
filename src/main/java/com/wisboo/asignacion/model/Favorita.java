@@ -26,6 +26,10 @@ public class Favorita implements Serializable {
     @JsonProperty
     private String url;
 
+    public String getUrl() {
+        return url;
+    }
+
     private static final long serialVersionUID = 1L;
 
 }
