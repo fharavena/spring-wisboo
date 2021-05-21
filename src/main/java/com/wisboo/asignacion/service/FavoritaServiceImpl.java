@@ -1,6 +1,6 @@
 package com.wisboo.asignacion.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,8 +17,8 @@ public class FavoritaServiceImpl implements IFavoritaService {
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Favorita> findAll() {
-        return (ArrayList<Favorita>) favoritaRepository.findAll();
+    public List<Favorita> findAll() {
+        return (List<Favorita>) favoritaRepository.findAll();
     }
 
 }
