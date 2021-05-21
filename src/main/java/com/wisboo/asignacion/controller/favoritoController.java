@@ -53,8 +53,6 @@ public class favoritoController {
         String salida = clienteRest.getForObject(url, String.class);
         Respuesta respuesta = gson.fromJson(salida, Respuesta.class);
 
-        // System.out.println(APIKEY);
-
         return respuesta;
     }
 
