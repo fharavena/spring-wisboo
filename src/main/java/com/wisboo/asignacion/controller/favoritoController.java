@@ -21,7 +21,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-
 @RestController
 @CrossOrigin(origins = "*")
 public class favoritoController {
@@ -72,13 +71,13 @@ public class favoritoController {
         try {
             FavoritaNew = favoritaRespository.save(favorita);
         } catch (DataAccessException e) {
-            response.put("mensaje", "Error al crear en la base de datos");
-            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            response.put("mensaje", "La url ya existe.");
+            // response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        response.put("mensaje", "El cliente ha sido creado con éxito");
-        response.put("cliente", FavoritaNew);
+        response.put("mensaje", "La imagen se ha agregado exitosamente");
+        response.put("imagen", FavoritaNew);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }

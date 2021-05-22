@@ -2,6 +2,7 @@ package com.wisboo.asignacion.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class Favorita implements Serializable {
     @JsonProperty
     private Long id;
     @JsonProperty
+    @Column(unique = true)
     private String url;
 
     public String getUrl() {
